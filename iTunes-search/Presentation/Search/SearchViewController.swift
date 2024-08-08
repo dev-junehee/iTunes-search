@@ -19,6 +19,7 @@ final class SearchViewController: BaseViewController {
     private let tableView = {
         let view = UITableView()
         view.backgroundColor = .lightGray
+        view.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.id)
         return view
     }()
     

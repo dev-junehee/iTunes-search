@@ -18,4 +18,8 @@ enum Constant {
         static let search = "게임, 앱, 스토리 등을 검색해 보세요."
     }
     
+    enum Button {
+        static let download = "받기"
+    }
+    
 }

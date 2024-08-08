@@ -15,7 +15,6 @@ class BaseViewController: UIViewController {
         configureViewController()
         configureHierarchy()
         configureLayout()
-        configureUI()
     }
     
     func configureViewController() { }
@@ -23,7 +22,5 @@ class BaseViewController: UIViewController {
     func configureHierarchy() { }
     
     func configureLayout() { }
-    
-    func configureUI() { }
     
 }
