@@ -24,6 +24,9 @@
 		C480621E2C651F41003FF7EE /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C480621D2C651F41003FF7EE /* BaseTableViewCell.swift */; };
 		C48062212C651FC2003FF7EE /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062202C651FC2003FF7EE /* Reusable.swift */; };
 		C48062242C652015003FF7EE /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062232C652015003FF7EE /* UIView+.swift */; };
+		C48062262C6524AC003FF7EE /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062252C6524AC003FF7EE /* SearchViewModel.swift */; };
+		C48062292C652822003FF7EE /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062282C652822003FF7EE /* Search.swift */; };
+		C480622C2C652CBD003FF7EE /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C480622B2C652CBD003FF7EE /* SearchDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +46,9 @@
 		C480621D2C651F41003FF7EE /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		C48062202C651FC2003FF7EE /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		C48062232C652015003FF7EE /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		C48062252C6524AC003FF7EE /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		C48062282C652822003FF7EE /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		C480622B2C652CBD003FF7EE /* SearchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +85,7 @@
 		C48061E82C65122E003FF7EE /* iTunes-search */ = {
 			isa = PBXGroup;
 			children = (
+				C48062272C65281D003FF7EE /* Model */,
 				C48062012C6512E5003FF7EE /* Application */,
 				C48062092C6518B1003FF7EE /* Resource */,
 				C48062222C65200F003FF7EE /* Extension */,
@@ -106,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				C48062052C651818003FF7EE /* Search */,
+				C480622A2C652CAA003FF7EE /* SearchDetail */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -114,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				C48062072C65182C003FF7EE /* SearchViewController.swift */,
+				C48062252C6524AC003FF7EE /* SearchViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -167,6 +176,22 @@
 				C48062232C652015003FF7EE /* UIView+.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		C48062272C65281D003FF7EE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C48062282C652822003FF7EE /* Search.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C480622A2C652CAA003FF7EE /* SearchDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C480622B2C652CBD003FF7EE /* SearchDetailViewController.swift */,
+			);
+			path = SearchDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,12 +274,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C480622C2C652CBD003FF7EE /* SearchDetailViewController.swift in Sources */,
+				C48062292C652822003FF7EE /* Search.swift in Sources */,
 				C48061EA2C65122E003FF7EE /* AppDelegate.swift in Sources */,
 				C48062032C6512F5003FF7EE /* API.swift in Sources */,
 				C48062082C65182C003FF7EE /* SearchViewController.swift in Sources */,
 				C480620B2C6518B7003FF7EE /* Resource.swift in Sources */,
 				C48062212C651FC2003FF7EE /* Reusable.swift in Sources */,
 				C480621E2C651F41003FF7EE /* BaseTableViewCell.swift in Sources */,
+				C48062262C6524AC003FF7EE /* SearchViewModel.swift in Sources */,
 				C48061EC2C65122E003FF7EE /* SceneDelegate.swift in Sources */,
 				C480621C2C651F38003FF7EE /* SearchTableViewCell.swift in Sources */,
 				C48062242C652015003FF7EE /* UIView+.swift in Sources */,

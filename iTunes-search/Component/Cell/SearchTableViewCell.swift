@@ -10,7 +10,7 @@ import SnapKit
 
 final class SearchTableViewCell: BaseTableViewCell {
     
-    private let appImage = {
+    let appImage = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
         view.clipsToBounds = true
@@ -19,7 +19,7 @@ final class SearchTableViewCell: BaseTableViewCell {
         return view
     }()
     
-    private let appName = {
+    let appName = {
         let label = UILabel()
         label.font = Font.bold18
         label.textColor = Color.black
@@ -36,7 +36,7 @@ final class SearchTableViewCell: BaseTableViewCell {
         title.font = Font.bold14
         config.attributedTitle = title
         
-        let button = UIButton()
+        let button = UIButton(configuration: config)
         return button
     }()
     
