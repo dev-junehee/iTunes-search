@@ -29,7 +29,7 @@ final class SearchViewModel {
         
         
         input.searchTab
-            .throttle(.seconds(1), scheduler: MainScheduler.instance)
+            .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
             .withLatestFrom(input.searchText)
             .debug("확인1")
             .distinctUntilChanged()

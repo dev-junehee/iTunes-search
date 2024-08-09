@@ -23,4 +23,5 @@ enum SystemImage {
 enum Font {
     static let bold14: UIFont = .systemFont(ofSize: 14, weight: .bold)
     static let bold18: UIFont = .systemFont(ofSize: 18, weight: .bold)
+    static let light12: UIFont = .systemFont(ofSize: 12, weight: .light)
 }

@@ -15,11 +15,11 @@ enum Constant {
     }
     
     enum Placeholder {
-        static let search = "게임, 앱, 스토리 등을 검색해 보세요."
+        static let search = "듣고싶은 음악을 검색해 보세요."
     }
     
     enum Button {
-        static let download = "받기"
+        static let download = "듣기"
     }
     
 }

@@ -7,6 +7,7 @@
 
 import UIKit
 
+import Kingfisher
 import RxCocoa
 import RxSwift
 import SnapKit
@@ -20,7 +21,6 @@ final class SearchViewController: BaseViewController {
     }()
     private let tableView = {
         let view = UITableView()
-        view.backgroundColor = .lightGray
         view.rowHeight = 80
         view.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.id)
         return view
@@ -57,7 +57,9 @@ final class SearchViewController: BaseViewController {
         
         output.searchList
             .bind(to: tableView.rx.items(cellIdentifier: SearchTableViewCell.id, cellType: SearchTableViewCell.self)) { (row, element, cell) in
-                cell.appName.text = element.artistName
+                cell.appNameLabel.text = element.trackName
+                cell.artistNameLabel.text = element.artistName
+                cell.appImage.kf.setImage(with: URL(string: element.artworkUrl100))
             }
             .disposed(by: disposeBag)
         

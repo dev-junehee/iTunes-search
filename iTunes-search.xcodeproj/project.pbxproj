@@ -28,6 +28,7 @@
 		C48062292C652822003FF7EE /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062282C652822003FF7EE /* Search.swift */; };
 		C480622C2C652CBD003FF7EE /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C480622B2C652CBD003FF7EE /* SearchDetailViewController.swift */; };
 		C480622F2C65A24A003FF7EE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C480622E2C65A24A003FF7EE /* NetworkManager.swift */; };
+		C48062332C65D2BE003FF7EE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C48062322C65D2BE003FF7EE /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C48062332C65D2BE003FF7EE /* Kingfisher in Frameworks */,
 				C48062152C651AD0003FF7EE /* SnapKit in Frameworks */,
 				C48062122C651AC5003FF7EE /* RxSwift in Frameworks */,
 				C48062102C651AC5003FF7EE /* RxCocoa in Frameworks */,
@@ -233,6 +235,7 @@
 				C480620F2C651AC5003FF7EE /* RxCocoa */,
 				C48062112C651AC5003FF7EE /* RxSwift */,
 				C48062142C651AD0003FF7EE /* SnapKit */,
+				C48062322C65D2BE003FF7EE /* Kingfisher */,
 			);
 			productName = "iTunes-search";
 			productReference = C48061E62C65122E003FF7EE /* iTunes-search.app */;
@@ -265,6 +268,7 @@
 			packageReferences = (
 				C480620E2C651AC5003FF7EE /* XCRemoteSwiftPackageReference "RxSwift" */,
 				C48062132C651AD0003FF7EE /* XCRemoteSwiftPackageReference "SnapKit" */,
+				C48062312C65D2BE003FF7EE /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = C48061E72C65122E003FF7EE /* Products */;
 			projectDirPath = "";
@@ -550,6 +554,14 @@
 				minimumVersion = 5.7.1;
 			};
 		};
+		C48062312C65D2BE003FF7EE /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.12.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -567,6 +579,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C48062132C651AD0003FF7EE /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		C48062322C65D2BE003FF7EE /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C48062312C65D2BE003FF7EE /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

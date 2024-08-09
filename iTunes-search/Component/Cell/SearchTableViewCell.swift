@@ -19,9 +19,25 @@ final class SearchTableViewCell: BaseTableViewCell {
         return view
     }()
     
-    let appName = {
+    private lazy var labelStack = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = 4
+        stack.addArrangedSubview(appNameLabel)
+        stack.addArrangedSubview(artistNameLabel)
+        return stack
+    }()
+    
+    let appNameLabel = {
         let label = UILabel()
         label.font = Font.bold18
+        label.textColor = Color.black
+        return label
+    }()
+    
+    let artistNameLabel = {
+        let label = UILabel()
+        label.font = Font.light12
         label.textColor = Color.black
         return label
     }()
@@ -41,7 +57,7 @@ final class SearchTableViewCell: BaseTableViewCell {
     }()
     
     override func configureHierarchy() {
-        [appImage, appName, downloadButton].forEach { contentView.addSubview($0) }
+        [appImage, labelStack, downloadButton].forEach { contentView.addSubview($0) }
     }
     
     override func configureLayout() {
@@ -51,10 +67,20 @@ final class SearchTableViewCell: BaseTableViewCell {
             $0.size.equalTo(60)
         }
         
-        appName.snp.makeConstraints {
+        labelStack.snp.makeConstraints {
             $0.centerY.equalTo(appImage)
             $0.leading.equalTo(appImage.snp.trailing).offset(8)
             $0.trailing.equalTo(downloadButton.snp.leading).offset(-8)
+        }
+        
+        appNameLabel.snp.makeConstraints {
+            $0.top.horizontalEdges.equalTo(labelStack)
+            $0.bottom.equalTo(artistNameLabel.snp.top)
+        }
+        
+        artistNameLabel.snp.makeConstraints {
+            $0.top.equalTo(appNameLabel.snp.bottom)
+            $0.horizontalEdges.bottom.equalTo(labelStack)
         }
         
         downloadButton.snp.makeConstraints {
