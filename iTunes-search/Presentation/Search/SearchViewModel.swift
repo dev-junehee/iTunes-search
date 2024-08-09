@@ -14,14 +14,14 @@ final class SearchViewModel {
     private let disposeBag = DisposeBag()
     
     struct Input {
-        let searchText: ControlProperty<String>
+        let searchText: ControlProperty<String?>
         let searchTab: ControlEvent<Void>
-        let tableSelected: ControlEvent<[String]>
+        let tableSelected: ControlEvent<SearchResults>
     }
     
     struct Output {
         let searchList: Observable<[SearchResults]>
-        let tableSelected: ControlEvent<[String]>
+        let tableSelected: ControlEvent<SearchResults>
     }
     
     func transform(input: Input) -> Output {
@@ -30,7 +30,7 @@ final class SearchViewModel {
         
         input.searchTab
             .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
-            .withLatestFrom(input.searchText)
+            .withLatestFrom(input.searchText.orEmpty)
             .debug("확인1")
             .distinctUntilChanged()
             .map { searchText in

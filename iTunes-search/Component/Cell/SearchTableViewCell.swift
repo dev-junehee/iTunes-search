@@ -10,7 +10,7 @@ import SnapKit
 
 final class SearchTableViewCell: BaseTableViewCell {
     
-    let appImage = {
+    let albumImage = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
         view.clipsToBounds = true
@@ -19,16 +19,15 @@ final class SearchTableViewCell: BaseTableViewCell {
         return view
     }()
     
-    private lazy var labelStack = {
+    private lazy var albumLabelStack = {
         let stack = UIStackView()
         stack.axis = .vertical
-        stack.spacing = 4
-        stack.addArrangedSubview(appNameLabel)
+        stack.addArrangedSubview(albumNameLabel)
         stack.addArrangedSubview(artistNameLabel)
         return stack
     }()
     
-    let appNameLabel = {
+    let albumNameLabel = {
         let label = UILabel()
         label.font = Font.bold18
         label.textColor = Color.black
@@ -57,34 +56,34 @@ final class SearchTableViewCell: BaseTableViewCell {
     }()
     
     override func configureHierarchy() {
-        [appImage, labelStack, downloadButton].forEach { contentView.addSubview($0) }
+        [albumImage, albumLabelStack, downloadButton].forEach { contentView.addSubview($0) }
     }
     
     override func configureLayout() {
-        appImage.snp.makeConstraints {
+        albumImage.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.equalTo(20)
             $0.size.equalTo(60)
         }
         
-        labelStack.snp.makeConstraints {
-            $0.centerY.equalTo(appImage)
-            $0.leading.equalTo(appImage.snp.trailing).offset(8)
+        albumLabelStack.snp.makeConstraints {
+            $0.centerY.equalTo(albumImage)
+            $0.leading.equalTo(albumImage.snp.trailing).offset(8)
             $0.trailing.equalTo(downloadButton.snp.leading).offset(-8)
         }
         
-        appNameLabel.snp.makeConstraints {
-            $0.top.horizontalEdges.equalTo(labelStack)
+        albumNameLabel.snp.makeConstraints {
+            $0.top.horizontalEdges.equalTo(albumLabelStack)
             $0.bottom.equalTo(artistNameLabel.snp.top)
         }
         
         artistNameLabel.snp.makeConstraints {
-            $0.top.equalTo(appNameLabel.snp.bottom)
-            $0.horizontalEdges.bottom.equalTo(labelStack)
+            $0.top.equalTo(albumNameLabel.snp.bottom)
+            $0.horizontalEdges.bottom.equalTo(albumLabelStack)
         }
         
         downloadButton.snp.makeConstraints {
-            $0.centerY.equalTo(appImage)
+            $0.centerY.equalTo(albumImage)
             $0.trailing.equalToSuperview().inset(20)
             $0.height.equalTo(32)
             $0.width.equalTo(72)

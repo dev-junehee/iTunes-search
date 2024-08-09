@@ -50,25 +50,25 @@ final class SearchViewController: BaseViewController {
     }
     
     private func bind() {
-        let input = SearchViewModel.Input(searchText: searchController.searchBar.rx.text.orEmpty,
+        let input = SearchViewModel.Input(searchText: searchController.searchBar.rx.text,
                                           searchTab: searchController.searchBar.rx.searchButtonClicked,
-                                          tableSelected: tableView.rx.modelSelected([String].self))
+                                          tableSelected: tableView.rx.modelSelected(SearchResults.self))
         let output = viewModel.transform(input: input)
         
         output.searchList
             .bind(to: tableView.rx.items(cellIdentifier: SearchTableViewCell.id, cellType: SearchTableViewCell.self)) { (row, element, cell) in
-                cell.appNameLabel.text = element.trackName
+                cell.albumNameLabel.text = element.trackName
                 cell.artistNameLabel.text = element.artistName
-                cell.appImage.kf.setImage(with: URL(string: element.artworkUrl100))
+                cell.albumImage.kf.setImage(with: URL(string: element.artworkUrl100))
             }
             .disposed(by: disposeBag)
         
-        // output.tableSelected
-        //     .bind(with: self) { owner, data in
-        //         let detail = SearchDetailViewController()
-        //         owner.navigationController?.pushViewController(detail, animated: true)
-        //     }
-        //     .disposed(by: disposeBag)
+        output.tableSelected
+            .bind(with: self) { owner, _ in
+                let detail = SearchDetailViewController()
+                owner.navigationController?.pushViewController(detail, animated: true)
+            }
+            .disposed(by: disposeBag)
         
     }
     
