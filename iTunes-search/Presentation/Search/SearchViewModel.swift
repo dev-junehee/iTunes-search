@@ -11,19 +11,48 @@ import RxSwift
 
 final class SearchViewModel {
     
-    let searchList: [String] = ["테스트1", "테스트2"]
+    private let disposeBag = DisposeBag()
     
     struct Input {
+        let searchText: ControlProperty<String>
+        let searchTab: ControlEvent<Void>
         let tableSelected: ControlEvent<[String]>
     }
     
     struct Output {
-        let searchList: BehaviorSubject<[String]>
+        let searchList: Observable<[SearchResults]>
         let tableSelected: ControlEvent<[String]>
     }
     
     func transform(input: Input) -> Output {
-        let searchList = BehaviorSubject(value: searchList)
+        let searchList = PublishSubject<[SearchResults]>()
+        
+        
+        input.searchTab
+            .throttle(.seconds(1), scheduler: MainScheduler.instance)
+            .withLatestFrom(input.searchText)
+            .debug("확인1")
+            .distinctUntilChanged()
+            .map { searchText in
+                print("검색어 확인", searchText)
+                return searchText
+            }
+            .flatMap { searchText in
+                NetworkManager.shared.getSearch(query: searchText)
+            }
+            .subscribe(with: self) { owner, search in
+                dump(search.results)
+                searchList.onNext(search.results)
+            } onError: { owner, error in
+                print("Error:", error)
+            } onCompleted: { value in
+                print("Completed")
+            } onDisposed: { value in
+                print("Disposed")
+            }
+            .disposed(by: disposeBag)
+            
+            
         
         return Output(searchList: searchList,
                       tableSelected: input.tableSelected)

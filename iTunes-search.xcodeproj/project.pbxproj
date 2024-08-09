@@ -27,6 +27,7 @@
 		C48062262C6524AC003FF7EE /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062252C6524AC003FF7EE /* SearchViewModel.swift */; };
 		C48062292C652822003FF7EE /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062282C652822003FF7EE /* Search.swift */; };
 		C480622C2C652CBD003FF7EE /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C480622B2C652CBD003FF7EE /* SearchDetailViewController.swift */; };
+		C480622F2C65A24A003FF7EE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C480622E2C65A24A003FF7EE /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		C48062252C6524AC003FF7EE /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		C48062282C652822003FF7EE /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		C480622B2C652CBD003FF7EE /* SearchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
+		C480622E2C65A24A003FF7EE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,8 @@
 		C48061E82C65122E003FF7EE /* iTunes-search */ = {
 			isa = PBXGroup;
 			children = (
+				C48062302C65A28F003FF7EE /* Network */,
+				C480622D2C65A230003FF7EE /* Manager */,
 				C48062272C65281D003FF7EE /* Model */,
 				C48062012C6512E5003FF7EE /* Application */,
 				C48062092C6518B1003FF7EE /* Resource */,
@@ -95,7 +99,6 @@
 				C48061F22C65122E003FF7EE /* Assets.xcassets */,
 				C48061F42C65122E003FF7EE /* LaunchScreen.storyboard */,
 				C48061F72C65122E003FF7EE /* Info.plist */,
-				C48062022C6512F5003FF7EE /* API.swift */,
 			);
 			path = "iTunes-search";
 			sourceTree = "<group>";
@@ -194,6 +197,22 @@
 			path = SearchDetail;
 			sourceTree = "<group>";
 		};
+		C480622D2C65A230003FF7EE /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				C480622E2C65A24A003FF7EE /* NetworkManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		C48062302C65A28F003FF7EE /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				C48062022C6512F5003FF7EE /* API.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -286,6 +305,7 @@
 				C48061EC2C65122E003FF7EE /* SceneDelegate.swift in Sources */,
 				C480621C2C651F38003FF7EE /* SearchTableViewCell.swift in Sources */,
 				C48062242C652015003FF7EE /* UIView+.swift in Sources */,
+				C480622F2C65A24A003FF7EE /* NetworkManager.swift in Sources */,
 				C48062192C651AFB003FF7EE /* BaseViewController.swift in Sources */,
 				C480620D2C651A2D003FF7EE /* Constant.swift in Sources */,
 			);

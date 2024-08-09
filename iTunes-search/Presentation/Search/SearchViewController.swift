@@ -50,12 +50,14 @@ final class SearchViewController: BaseViewController {
     }
     
     private func bind() {
-        let input = SearchViewModel.Input(tableSelected: tableView.rx.modelSelected([String].self))
+        let input = SearchViewModel.Input(searchText: searchController.searchBar.rx.text.orEmpty,
+                                          searchTab: searchController.searchBar.rx.searchButtonClicked,
+                                          tableSelected: tableView.rx.modelSelected([String].self))
         let output = viewModel.transform(input: input)
         
         output.searchList
             .bind(to: tableView.rx.items(cellIdentifier: SearchTableViewCell.id, cellType: SearchTableViewCell.self)) { (row, element, cell) in
-                cell.appName.text = element
+                cell.appName.text = element.artistName
             }
             .disposed(by: disposeBag)
         
