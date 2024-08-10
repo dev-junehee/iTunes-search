@@ -30,6 +30,7 @@ final class SearchViewController: BaseViewController {
     private func layout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 70, height: 40)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
         layout.scrollDirection = .horizontal
         return layout
     }
@@ -40,6 +41,8 @@ final class SearchViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
+        print("UD CHECK", UserDefaultsManager.recentSearch)
+        
     }
     
     override func configureViewController() {

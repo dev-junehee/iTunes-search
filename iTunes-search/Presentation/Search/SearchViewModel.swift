@@ -13,7 +13,7 @@ final class SearchViewModel {
     
     private let disposeBag = DisposeBag()
     
-    var recentList: [String] = ["테스트1", "테스트2", "테스트3", "테스트4", "테스트5", "테스트6"]
+    var recentList: [String] = []
     
     struct Input {
         let searchText: ControlProperty<String?>
@@ -28,9 +28,24 @@ final class SearchViewModel {
     }
     
     func transform(input: Input) -> Output {
-        let recentList = BehaviorSubject(value: recentList)
+        let recentList = BehaviorSubject(value: UserDefaultsManager.recentSearch)
         let searchList = PublishSubject<[SearchResults]>()
         
+        input.searchText
+            .orEmpty
+            .distinctUntilChanged()
+            .map { searchText in
+                return "\(searchText)"
+            }
+            .subscribe { searchText in
+                var recentList = UserDefaultsManager.recentSearch
+                // 이전 검색 리스트에 없을 때만 저장
+                if !recentList.contains(searchText) && !searchText.isEmpty {
+                    recentList.insert(searchText, at: 0)
+                    UserDefaultsManager.recentSearch = recentList
+                }
+            }
+            .disposed(by: disposeBag)
         
         input.searchTab
             .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
@@ -38,7 +53,6 @@ final class SearchViewModel {
             .debug("확인1")
             .distinctUntilChanged()
             .map { searchText in
-                print("검색어 확인", searchText)
                 return searchText
             }
             .flatMap { searchText in
