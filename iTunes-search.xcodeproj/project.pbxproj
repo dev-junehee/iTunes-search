@@ -29,6 +29,10 @@
 		C480622C2C652CBD003FF7EE /* SearchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C480622B2C652CBD003FF7EE /* SearchDetailViewController.swift */; };
 		C480622F2C65A24A003FF7EE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C480622E2C65A24A003FF7EE /* NetworkManager.swift */; };
 		C48062332C65D2BE003FF7EE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C48062322C65D2BE003FF7EE /* Kingfisher */; };
+		C48062352C6652D6003FF7EE /* SearchDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062342C6652D6003FF7EE /* SearchDetailViewModel.swift */; };
+		C48062372C674FDC003FF7EE /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062362C674FDC003FF7EE /* UserDefaultsManager.swift */; };
+		C48062392C67806D003FF7EE /* RecentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062382C67806D003FF7EE /* RecentCollectionViewCell.swift */; };
+		C480623B2C6780A2003FF7EE /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C480623A2C6780A2003FF7EE /* BaseCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +56,10 @@
 		C48062282C652822003FF7EE /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		C480622B2C652CBD003FF7EE /* SearchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewController.swift; sourceTree = "<group>"; };
 		C480622E2C65A24A003FF7EE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		C48062342C6652D6003FF7EE /* SearchDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailViewModel.swift; sourceTree = "<group>"; };
+		C48062362C674FDC003FF7EE /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		C48062382C67806D003FF7EE /* RecentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCollectionViewCell.swift; sourceTree = "<group>"; };
+		C480623A2C6780A2003FF7EE /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +163,7 @@
 			children = (
 				C48062182C651AFB003FF7EE /* BaseViewController.swift */,
 				C480621D2C651F41003FF7EE /* BaseTableViewCell.swift */,
+				C480623A2C6780A2003FF7EE /* BaseCollectionViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -163,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				C480621B2C651F38003FF7EE /* SearchTableViewCell.swift */,
+				C48062382C67806D003FF7EE /* RecentCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -195,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				C480622B2C652CBD003FF7EE /* SearchDetailViewController.swift */,
+				C48062342C6652D6003FF7EE /* SearchDetailViewModel.swift */,
 			);
 			path = SearchDetail;
 			sourceTree = "<group>";
@@ -203,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				C480622E2C65A24A003FF7EE /* NetworkManager.swift */,
+				C48062362C674FDC003FF7EE /* UserDefaultsManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -299,15 +311,19 @@
 			files = (
 				C480622C2C652CBD003FF7EE /* SearchDetailViewController.swift in Sources */,
 				C48062292C652822003FF7EE /* Search.swift in Sources */,
+				C48062372C674FDC003FF7EE /* UserDefaultsManager.swift in Sources */,
+				C48062392C67806D003FF7EE /* RecentCollectionViewCell.swift in Sources */,
 				C48061EA2C65122E003FF7EE /* AppDelegate.swift in Sources */,
 				C48062032C6512F5003FF7EE /* API.swift in Sources */,
 				C48062082C65182C003FF7EE /* SearchViewController.swift in Sources */,
 				C480620B2C6518B7003FF7EE /* Resource.swift in Sources */,
 				C48062212C651FC2003FF7EE /* Reusable.swift in Sources */,
 				C480621E2C651F41003FF7EE /* BaseTableViewCell.swift in Sources */,
+				C480623B2C6780A2003FF7EE /* BaseCollectionViewCell.swift in Sources */,
 				C48062262C6524AC003FF7EE /* SearchViewModel.swift in Sources */,
 				C48061EC2C65122E003FF7EE /* SceneDelegate.swift in Sources */,
 				C480621C2C651F38003FF7EE /* SearchTableViewCell.swift in Sources */,
+				C48062352C6652D6003FF7EE /* SearchDetailViewModel.swift in Sources */,
 				C48062242C652015003FF7EE /* UIView+.swift in Sources */,
 				C480622F2C65A24A003FF7EE /* NetworkManager.swift in Sources */,
 				C48062192C651AFB003FF7EE /* BaseViewController.swift in Sources */,

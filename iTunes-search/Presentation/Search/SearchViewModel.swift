@@ -13,6 +13,8 @@ final class SearchViewModel {
     
     private let disposeBag = DisposeBag()
     
+    var recentList: [String] = ["테스트1", "테스트2", "테스트3", "테스트4", "테스트5", "테스트6"]
+    
     struct Input {
         let searchText: ControlProperty<String?>
         let searchTab: ControlEvent<Void>
@@ -20,11 +22,13 @@ final class SearchViewModel {
     }
     
     struct Output {
+        let recentList: BehaviorSubject<[String]>
         let searchList: Observable<[SearchResults]>
         let tableSelected: ControlEvent<SearchResults>
     }
     
     func transform(input: Input) -> Output {
+        let recentList = BehaviorSubject(value: recentList)
         let searchList = PublishSubject<[SearchResults]>()
         
         
@@ -54,7 +58,8 @@ final class SearchViewModel {
             
             
         
-        return Output(searchList: searchList,
+        return Output(recentList: recentList,
+                      searchList: searchList,
                       tableSelected: input.tableSelected)
     }
     

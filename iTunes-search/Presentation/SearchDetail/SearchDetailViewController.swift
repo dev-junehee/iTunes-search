@@ -6,6 +6,10 @@
 //
 
 import UIKit
+
+import Kingfisher
+import RxCocoa
+import RxSwift
 import SnapKit
 
 final class SearchDetailViewController: BaseViewController {
@@ -18,7 +22,6 @@ final class SearchDetailViewController: BaseViewController {
         view.layer.cornerRadius = 8
         return view
     }()
-    
     private lazy var albumLabelStack = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -27,21 +30,18 @@ final class SearchDetailViewController: BaseViewController {
         stack.addArrangedSubview(artistNameLabel)
         return stack
     }()
-    
     let albumNameLabel = {
         let label = UILabel()
         label.font = Font.bold18
         label.textColor = Color.black
         return label
     }()
-    
     let artistNameLabel = {
         let label = UILabel()
         label.font = Font.light12
-        label.textColor = Color.lightGray
+        label.textColor = Color.gray
         return label
     }()
-    
     private let downloadButton = {
         var config = UIButton.Configuration.filled()
         config.baseBackgroundColor = Color.lightGray
@@ -55,11 +55,15 @@ final class SearchDetailViewController: BaseViewController {
         let button = UIButton(configuration: config)
         return button
     }()
+
+    var searchData: SearchResults?
     
+    private let viewModel = SearchDetailViewModel()
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("SearchDetailViewController")
+        configureUI()
     }
     
     override func configureViewController() {
@@ -95,10 +99,12 @@ final class SearchDetailViewController: BaseViewController {
             $0.bottom.equalTo(albumImage.snp.bottom)
             $0.width.equalTo(70)
         }
-        
-        albumNameLabel.text = "지저스 크라이스트 수퍼스타 Vol.3"
-        artistNameLabel.text = "Various Artists"
-    
     }
     
+    func configureUI() {
+        guard let searchData else { return }
+        albumNameLabel.text = searchData.trackName
+        artistNameLabel.text = searchData.artistName
+        albumImage.kf.setImage(with: URL(string: searchData.artworkUrl100))
+    }
 }
