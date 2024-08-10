@@ -31,21 +31,22 @@ final class SearchViewModel {
         let recentList = BehaviorSubject(value: UserDefaultsManager.recentSearch)
         let searchList = PublishSubject<[SearchResults]>()
         
-        input.searchText
-            .orEmpty
-            .distinctUntilChanged()
-            .map { searchText in
-                return "\(searchText)"
-            }
-            .subscribe { searchText in
-                var recentList = UserDefaultsManager.recentSearch
-                // 이전 검색 리스트에 없을 때만 저장
-                if !recentList.contains(searchText) && !searchText.isEmpty {
-                    recentList.insert(searchText, at: 0)
-                    UserDefaultsManager.recentSearch = recentList
-                }
-            }
-            .disposed(by: disposeBag)
+        // input.searchText
+        //     .orEmpty
+        //     .withLatestFrom(input.searchText.orEmpty)
+        //     .distinctUntilChanged()
+        //     .map { searchText in
+        //         return "\(searchText)"
+        //     }
+        //     .subscribe { searchText in
+        //         var recentList = UserDefaultsManager.recentSearch
+        //         // 이전 검색 리스트에 없을 때만 저장
+        //         if !recentList.contains(searchText) && !searchText.isEmpty {
+        //             recentList.insert(searchText, at: 0)
+        //             UserDefaultsManager.recentSearch = recentList
+        //         }
+        //     }
+        //     .disposed(by: disposeBag)
         
         input.searchTab
             .throttle(.milliseconds(500), scheduler: MainScheduler.instance)

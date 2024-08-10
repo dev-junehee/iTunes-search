@@ -41,6 +41,7 @@ final class SearchViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
+        // UserDefaultsManager.deleteAllRecentSearchList()
         print("UD CHECK", UserDefaultsManager.recentSearch)
         
     }

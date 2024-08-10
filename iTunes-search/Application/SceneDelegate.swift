@@ -21,8 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tab.view.backgroundColor = Color.white
         
         let search = UINavigationController(rootViewController: SearchViewController())
+        let storage = UINavigationController(rootViewController: StorageViewController())
         
-        let tabs = [search]
+        let tabs = [search, storage]
         tab.setViewControllers(tabs, animated: true)
         
         if let items = tab.tabBar.items {

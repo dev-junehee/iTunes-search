@@ -33,6 +33,7 @@
 		C48062372C674FDC003FF7EE /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062362C674FDC003FF7EE /* UserDefaultsManager.swift */; };
 		C48062392C67806D003FF7EE /* RecentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062382C67806D003FF7EE /* RecentCollectionViewCell.swift */; };
 		C480623B2C6780A2003FF7EE /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C480623A2C6780A2003FF7EE /* BaseCollectionViewCell.swift */; };
+		C480623E2C679397003FF7EE /* StorageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C480623D2C679397003FF7EE /* StorageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		C48062362C674FDC003FF7EE /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		C48062382C67806D003FF7EE /* RecentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCollectionViewCell.swift; sourceTree = "<group>"; };
 		C480623A2C6780A2003FF7EE /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		C480623D2C679397003FF7EE /* StorageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 		C48062042C651723003FF7EE /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				C480623C2C679388003FF7EE /* Storage */,
 				C48062052C651818003FF7EE /* Search */,
 				C480622A2C652CAA003FF7EE /* SearchDetail */,
 			);
@@ -227,6 +230,14 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		C480623C2C679388003FF7EE /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				C480623D2C679397003FF7EE /* StorageViewController.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -327,6 +338,7 @@
 				C48062242C652015003FF7EE /* UIView+.swift in Sources */,
 				C480622F2C65A24A003FF7EE /* NetworkManager.swift in Sources */,
 				C48062192C651AFB003FF7EE /* BaseViewController.swift in Sources */,
+				C480623E2C679397003FF7EE /* StorageViewController.swift in Sources */,
 				C480620D2C651A2D003FF7EE /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

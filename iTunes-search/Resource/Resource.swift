@@ -17,7 +17,8 @@ enum Color {
 
 enum SystemImage {
     static let tab: [UIImage] = [
-        UIImage(systemName: "magnifyingglass")!
+        UIImage(systemName: "magnifyingglass")!,
+        UIImage(systemName: "music.note.list")!
     ]
 }
 

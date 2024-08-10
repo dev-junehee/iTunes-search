@@ -8,10 +8,11 @@
 import Foundation
 
 enum Constant {
-    static let tab = ["검색"]
+    static let tab = ["검색", "보관함"]
     
     enum Title {
         static let search = "검색"
+        static let storage = "보관함"
     }
     
     enum Placeholder {
@@ -19,7 +20,7 @@ enum Constant {
     }
     
     enum Button {
-        static let download = "듣기"
+        static let download = "저장"
     }
     
 }
