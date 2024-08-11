@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import RxSwift
 
 final class SearchTableViewCell: BaseTableViewCell {
     
@@ -41,7 +42,7 @@ final class SearchTableViewCell: BaseTableViewCell {
         return label
     }()
     
-    private let downloadButton = {
+    let downloadButton = {
         var config = UIButton.Configuration.filled()
         config.baseBackgroundColor = Color.lightGray
         config.baseForegroundColor = Color.blue
@@ -54,6 +55,8 @@ final class SearchTableViewCell: BaseTableViewCell {
         let button = UIButton(configuration: config)
         return button
     }()
+    
+    let disposeBag = DisposeBag()
     
     override func configureHierarchy() {
         [albumImage, albumLabelStack, downloadButton].forEach { contentView.addSubview($0) }

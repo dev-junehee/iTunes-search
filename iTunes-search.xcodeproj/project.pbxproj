@@ -34,6 +34,9 @@
 		C48062392C67806D003FF7EE /* RecentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062382C67806D003FF7EE /* RecentCollectionViewCell.swift */; };
 		C480623B2C6780A2003FF7EE /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C480623A2C6780A2003FF7EE /* BaseCollectionViewCell.swift */; };
 		C480623E2C679397003FF7EE /* StorageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C480623D2C679397003FF7EE /* StorageViewController.swift */; };
+		C48062422C6794CD003FF7EE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C48062412C6794CD003FF7EE /* RealmSwift */; };
+		C48062442C68CEC3003FF7EE /* LikeMusicRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062432C68CEC3003FF7EE /* LikeMusicRepository.swift */; };
+		C48062462C68D27B003FF7EE /* LikeMusicTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062452C68D27B003FF7EE /* LikeMusicTable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +65,8 @@
 		C48062382C67806D003FF7EE /* RecentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentCollectionViewCell.swift; sourceTree = "<group>"; };
 		C480623A2C6780A2003FF7EE /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		C480623D2C679397003FF7EE /* StorageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageViewController.swift; sourceTree = "<group>"; };
+		C48062432C68CEC3003FF7EE /* LikeMusicRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeMusicRepository.swift; sourceTree = "<group>"; };
+		C48062452C68D27B003FF7EE /* LikeMusicTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeMusicTable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +77,7 @@
 				C48062332C65D2BE003FF7EE /* Kingfisher in Frameworks */,
 				C48062152C651AD0003FF7EE /* SnapKit in Frameworks */,
 				C48062122C651AC5003FF7EE /* RxSwift in Frameworks */,
+				C48062422C6794CD003FF7EE /* RealmSwift in Frameworks */,
 				C48062102C651AC5003FF7EE /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,6 +105,7 @@
 		C48061E82C65122E003FF7EE /* iTunes-search */ = {
 			isa = PBXGroup;
 			children = (
+				C480623F2C67947A003FF7EE /* Database */,
 				C48062302C65A28F003FF7EE /* Network */,
 				C480622D2C65A230003FF7EE /* Manager */,
 				C48062272C65281D003FF7EE /* Model */,
@@ -238,6 +245,15 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
+		C480623F2C67947A003FF7EE /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				C48062432C68CEC3003FF7EE /* LikeMusicRepository.swift */,
+				C48062452C68D27B003FF7EE /* LikeMusicTable.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -259,6 +275,7 @@
 				C48062112C651AC5003FF7EE /* RxSwift */,
 				C48062142C651AD0003FF7EE /* SnapKit */,
 				C48062322C65D2BE003FF7EE /* Kingfisher */,
+				C48062412C6794CD003FF7EE /* RealmSwift */,
 			);
 			productName = "iTunes-search";
 			productReference = C48061E62C65122E003FF7EE /* iTunes-search.app */;
@@ -292,6 +309,7 @@
 				C480620E2C651AC5003FF7EE /* XCRemoteSwiftPackageReference "RxSwift" */,
 				C48062132C651AD0003FF7EE /* XCRemoteSwiftPackageReference "SnapKit" */,
 				C48062312C65D2BE003FF7EE /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				C48062402C6794CD003FF7EE /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = C48061E72C65122E003FF7EE /* Products */;
 			projectDirPath = "";
@@ -320,6 +338,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C48062442C68CEC3003FF7EE /* LikeMusicRepository.swift in Sources */,
 				C480622C2C652CBD003FF7EE /* SearchDetailViewController.swift in Sources */,
 				C48062292C652822003FF7EE /* Search.swift in Sources */,
 				C48062372C674FDC003FF7EE /* UserDefaultsManager.swift in Sources */,
@@ -328,6 +347,7 @@
 				C48062032C6512F5003FF7EE /* API.swift in Sources */,
 				C48062082C65182C003FF7EE /* SearchViewController.swift in Sources */,
 				C480620B2C6518B7003FF7EE /* Resource.swift in Sources */,
+				C48062462C68D27B003FF7EE /* LikeMusicTable.swift in Sources */,
 				C48062212C651FC2003FF7EE /* Reusable.swift in Sources */,
 				C480621E2C651F41003FF7EE /* BaseTableViewCell.swift in Sources */,
 				C480623B2C6780A2003FF7EE /* BaseCollectionViewCell.swift in Sources */,
@@ -590,6 +610,14 @@
 				minimumVersion = 7.12.0;
 			};
 		};
+		C48062402C6794CD003FF7EE /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -612,6 +640,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C48062312C65D2BE003FF7EE /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		C48062412C6794CD003FF7EE /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C48062402C6794CD003FF7EE /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

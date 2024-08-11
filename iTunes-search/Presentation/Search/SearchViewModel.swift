@@ -19,6 +19,7 @@ final class SearchViewModel {
         let searchText: ControlProperty<String?>
         let searchTab: ControlEvent<Void>
         let tableSelected: ControlEvent<SearchResults>
+        let downloadButtonTap: PublishSubject<SearchResults>
     }
     
     struct Output {
@@ -71,7 +72,17 @@ final class SearchViewModel {
             }
             .disposed(by: disposeBag)
             
-            
+        input.downloadButtonTap
+            .subscribe(with: self) { owner, value in
+                print("value", value)
+            } onError: { owner, error in
+                print("error", error)
+            } onCompleted: { value in
+                print("Completed")
+            } onDisposed: { Objectvalue in
+                print("Disposed")
+            }
+            .disposed(by: disposeBag)
         
         return Output(recentList: recentList,
                       searchList: searchList,

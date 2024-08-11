@@ -71,9 +71,12 @@ final class SearchViewController: BaseViewController {
     }
     
     private func bind() {
+        let downloadButtonTab = PublishSubject<SearchResults>()
+        
         let input = SearchViewModel.Input(searchText: searchController.searchBar.rx.text,
                                           searchTab: searchController.searchBar.rx.searchButtonClicked,
-                                          tableSelected: tableView.rx.modelSelected(SearchResults.self))
+                                          tableSelected: tableView.rx.modelSelected(SearchResults.self),
+                                          downloadButtonTap: downloadButtonTab)
         let output = viewModel.transform(input: input)
         
         // 최근검색
@@ -89,6 +92,12 @@ final class SearchViewController: BaseViewController {
                 cell.albumNameLabel.text = element.trackName
                 cell.artistNameLabel.text = element.artistName
                 cell.albumImage.kf.setImage(with: URL(string: element.artworkUrl100))
+                
+                cell.downloadButton.rx.tap
+                    .subscribe { _ in
+                        downloadButtonTab.onNext(element)
+                    }
+                    .disposed(by: cell.disposeBag)
             }
             .disposed(by: disposeBag)
         
