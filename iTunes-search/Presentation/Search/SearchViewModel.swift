@@ -11,6 +11,7 @@ import RxSwift
 
 final class SearchViewModel {
     
+    private let repo = LikeMusicRepository()
     private let disposeBag = DisposeBag()
     
     var recentList: [String] = []
@@ -71,10 +72,13 @@ final class SearchViewModel {
                 print("Disposed")
             }
             .disposed(by: disposeBag)
-            
+        
+        // 음악 저장
         input.downloadButtonTap
             .subscribe(with: self) { owner, value in
-                print("value", value)
+                // print("value", value)
+                let likeMusic = LikeMusic(music: value)
+                owner.repo.createLikeMusic(likeMusic)
             } onError: { owner, error in
                 print("error", error)
             } onCompleted: { value in

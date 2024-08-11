@@ -21,6 +21,7 @@ enum Constant {
     
     enum Button {
         static let download = "저장"
+        static let cancel = "취소"
     }
     
 }

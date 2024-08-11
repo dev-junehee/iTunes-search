@@ -17,11 +17,18 @@ final class LikeMusicRepository {
         do {
             try realm.write {
                 realm.add(music)
+                getFileURL()
                 print("Succeed Create LikeMusic")
             }
         } catch (let error) {
             print("Fail Create LikeMusic", error)
         }
+    }
+    
+    // 저장한 음악 전체 불러오기
+    func getAllLikePhoto() -> [LikeMusic]? {
+        let likePhotos = realm.objects(LikeMusic.self)
+        return Array(likePhotos)
     }
     
     // 저장한 음악 삭제
@@ -36,5 +43,15 @@ final class LikeMusicRepository {
         }
     }
     
+    // 스키마버전 확인
+    func getSchemaVersion() {
+        print(realm.configuration.schemaVersion)
+    }
+
+    // 저장 경로 확인
+    func getFileURL() {
+        print(realm.configuration.fileURL ?? "No fileURL")
+        
+    }
     
 }

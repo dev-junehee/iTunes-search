@@ -37,6 +37,8 @@
 		C48062422C6794CD003FF7EE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C48062412C6794CD003FF7EE /* RealmSwift */; };
 		C48062442C68CEC3003FF7EE /* LikeMusicRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062432C68CEC3003FF7EE /* LikeMusicRepository.swift */; };
 		C48062462C68D27B003FF7EE /* LikeMusicTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062452C68D27B003FF7EE /* LikeMusicTable.swift */; };
+		C48062482C68E515003FF7EE /* StorageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062472C68E515003FF7EE /* StorageViewModel.swift */; };
+		C480624A2C68E6CB003FF7EE /* LikeMusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062492C68E6CB003FF7EE /* LikeMusicTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +69,8 @@
 		C480623D2C679397003FF7EE /* StorageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageViewController.swift; sourceTree = "<group>"; };
 		C48062432C68CEC3003FF7EE /* LikeMusicRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeMusicRepository.swift; sourceTree = "<group>"; };
 		C48062452C68D27B003FF7EE /* LikeMusicTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeMusicTable.swift; sourceTree = "<group>"; };
+		C48062472C68E515003FF7EE /* StorageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageViewModel.swift; sourceTree = "<group>"; };
+		C48062492C68E6CB003FF7EE /* LikeMusicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeMusicTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +187,7 @@
 			children = (
 				C480621B2C651F38003FF7EE /* SearchTableViewCell.swift */,
 				C48062382C67806D003FF7EE /* RecentCollectionViewCell.swift */,
+				C48062492C68E6CB003FF7EE /* LikeMusicTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -241,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				C480623D2C679397003FF7EE /* StorageViewController.swift */,
+				C48062472C68E515003FF7EE /* StorageViewModel.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -354,9 +360,11 @@
 				C48062262C6524AC003FF7EE /* SearchViewModel.swift in Sources */,
 				C48061EC2C65122E003FF7EE /* SceneDelegate.swift in Sources */,
 				C480621C2C651F38003FF7EE /* SearchTableViewCell.swift in Sources */,
+				C480624A2C68E6CB003FF7EE /* LikeMusicTableViewCell.swift in Sources */,
 				C48062352C6652D6003FF7EE /* SearchDetailViewModel.swift in Sources */,
 				C48062242C652015003FF7EE /* UIView+.swift in Sources */,
 				C480622F2C65A24A003FF7EE /* NetworkManager.swift in Sources */,
+				C48062482C68E515003FF7EE /* StorageViewModel.swift in Sources */,
 				C48062192C651AFB003FF7EE /* BaseViewController.swift in Sources */,
 				C480623E2C679397003FF7EE /* StorageViewController.swift in Sources */,
 				C480620D2C651A2D003FF7EE /* Constant.swift in Sources */,
