@@ -24,6 +24,7 @@ final class StorageViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.repo.getFileURL()
         bind()
     }
     

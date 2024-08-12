@@ -10,9 +10,9 @@ import RealmSwift
 import RxCocoa
 import RxSwift
 
-final class StorageViewModel {
+final class StorageViewModel: BaseViewModel {
     
-    private let repo = LikeMusicRepository()
+    let repo = LikeMusicRepository()
     
     struct Input {
         

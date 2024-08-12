@@ -25,13 +25,14 @@ final class SearchViewModel {
     
     struct Output {
         let recentList: BehaviorSubject<[String]>
-        let searchList: Observable<[SearchResults]>
+        // let searchList: Observable<[SearchResults]>
+        let searchList: Driver<Search>
         let tableSelected: ControlEvent<SearchResults>
     }
     
     func transform(input: Input) -> Output {
         let recentList = BehaviorSubject(value: UserDefaultsManager.recentSearch)
-        let searchList = PublishSubject<[SearchResults]>()
+        // let searchList = PublishSubject<[SearchResults]>()
         
         // input.searchText
         //     .orEmpty
@@ -50,28 +51,42 @@ final class SearchViewModel {
         //     }
         //     .disposed(by: disposeBag)
         
-        input.searchTab
+        // 서치바 탭 - 검색
+        let searchList = input.searchTab
             .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
             .withLatestFrom(input.searchText.orEmpty)
-            .debug("확인1")
             .distinctUntilChanged()
             .map { searchText in
+                var recentList = UserDefaultsManager.recentSearch
+                // 이전 검색 리스트에 없을 때만 저장
+                if !recentList.contains(searchText) && !searchText.isEmpty {
+                    recentList.insert(searchText, at: 0)
+                    UserDefaultsManager.recentSearch = recentList
+                }
                 return searchText
             }
             .flatMap { searchText in
                 NetworkManager.shared.getSearch(query: searchText)
+                    .catch { error in
+                        return Observable.just(Search(resultCount: 0, results: []))
+                    }
             }
-            .subscribe(with: self) { owner, search in
-                dump(search.results)
-                searchList.onNext(search.results)
-            } onError: { owner, error in
-                print("Error:", error)
-            } onCompleted: { value in
-                print("Completed")
-            } onDisposed: { value in
-                print("Disposed")
-            }
-            .disposed(by: disposeBag)
+            .asDriver(onErrorJustReturn: Search(resultCount: 0, results: []))
+            .debug("")
+            
+        
+            // .subscribe(with: self) { owner, search in
+            //     dump(search.results)
+            //     searchList.onNext(search.results)
+            // } onError: { owner, error in
+            //     print("Error:", error)
+            // } onCompleted: { value in
+            //     print("Completed")
+            // } onDisposed: { value in
+            //     print("Disposed")
+            // }
+            // .disposed(by: disposeBag)
+        
         
         // 음악 저장
         input.downloadButtonTap

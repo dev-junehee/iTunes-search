@@ -88,11 +88,14 @@ final class SearchViewController: BaseViewController {
         
         // 검색결과
         output.searchList
-            .bind(to: tableView.rx.items(cellIdentifier: SearchTableViewCell.id, cellType: SearchTableViewCell.self)) { (row, element, cell) in
+            .map { res in
+                return res.results
+            }
+            .drive(tableView.rx.items(cellIdentifier: SearchTableViewCell.id, cellType: SearchTableViewCell.self)) { (row, element, cell) in
                 cell.albumNameLabel.text = element.trackName
                 cell.artistNameLabel.text = element.artistName
                 cell.albumImage.kf.setImage(with: URL(string: element.artworkUrl100))
-                
+        
                 cell.downloadButton.rx.tap
                     .subscribe { _ in
                         downloadButtonTab.onNext(element)
@@ -100,6 +103,21 @@ final class SearchViewController: BaseViewController {
                     .disposed(by: cell.disposeBag)
             }
             .disposed(by: disposeBag)
+        
+        /// 기존 검색 결과 바인딩 -> 네트워크 통신에서 오류 발생 시 `searchTap` 이벤트까지 종료되어 추가 검색 불가능했음
+        // output.searchList
+        //     .bind(to: tableView.rx.items(cellIdentifier: SearchTableViewCell.id, cellType: SearchTableViewCell.self)) { (row, element, cell) in
+        //         cell.albumNameLabel.text = element.trackName
+        //         cell.artistNameLabel.text = element.artistName
+        //         cell.albumImage.kf.setImage(with: URL(string: element.artworkUrl100))
+        //         
+        //         cell.downloadButton.rx.tap
+        //             .subscribe { _ in
+        //                 downloadButtonTab.onNext(element)
+        //             }
+        //             .disposed(by: cell.disposeBag)
+        //     }
+        //     .disposed(by: disposeBag)
         
         // 검색결과 셀 클릭
         output.tableSelected
