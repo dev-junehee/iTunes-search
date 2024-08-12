@@ -22,11 +22,19 @@ final class StorageViewController: BaseViewController {
     private let viewModel = StorageViewModel()
     private let disposeBag = DisposeBag()
     
+    // private let viewWillAppearTrigger = PublishRelay<Void>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.repo.getFileURL()
         bind()
     }
+    
+    // override func viewWillAppear(_ animated: Bool) {
+    //     super.viewWillAppear(animated)
+    //     viewWillAppearTrigger.accept(())
+    //     
+    // }
     
     override func configureViewController() {
         navigationItem.title = Constant.Title.storage
@@ -47,7 +55,8 @@ final class StorageViewController: BaseViewController {
     private func bind() {
         let cancelButtonTap = PublishSubject<LikeMusic>()
         
-        let input = StorageViewModel.Input(cancelButtonTap: cancelButtonTap)
+        let input = StorageViewModel.Input(viewWillAppearTrigger: self.rx.methodInvoked(#selector(self.viewWillAppear(_:))),
+                                           cancelButtonTap: cancelButtonTap)
         let output = viewModel.transform(input: input)
         
         output.likeMusicList

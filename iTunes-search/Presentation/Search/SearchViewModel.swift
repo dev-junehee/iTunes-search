@@ -9,7 +9,7 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-final class SearchViewModel {
+final class SearchViewModel: BaseViewModel {
     
     private let repo = LikeMusicRepository()
     private let disposeBag = DisposeBag()

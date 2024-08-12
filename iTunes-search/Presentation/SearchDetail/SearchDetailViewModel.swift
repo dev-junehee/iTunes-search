@@ -8,8 +8,18 @@
 import Foundation
 import RxSwift
 
-final class SearchDetailViewModel {
+final class SearchDetailViewModel: BaseViewModel {
     
+    struct Input {
+        
+    }
+    
+    struct Output {
+        
+    }
   
+    func transform(input: Input) -> Output {
+        return Output()
+    }
     
 }
