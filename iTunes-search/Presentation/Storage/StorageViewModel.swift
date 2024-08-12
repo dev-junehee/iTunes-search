@@ -13,9 +13,10 @@ import RxSwift
 final class StorageViewModel: BaseViewModel {
     
     let repo = LikeMusicRepository()
+    private let disposeBag = DisposeBag()
     
     struct Input {
-        
+        let cancelButtonTap: PublishSubject<LikeMusic>
     }
     
     struct Output {
@@ -25,6 +26,14 @@ final class StorageViewModel: BaseViewModel {
     
     func transform(input: Input) -> Output {
         let likeMusicList = BehaviorSubject(value: repo.getAllLikePhoto() ?? [])
+        
+        input.cancelButtonTap
+            .bind(with: self) { owner, likeMusic in
+                owner.repo.deleteLikeMusic(likeMusic)
+                likeMusicList.onNext(owner.repo.getAllLikePhoto() ?? [])
+            }
+            .disposed(by: disposeBag)
+
         
         return Output(likeMusicList: likeMusicList)
     }

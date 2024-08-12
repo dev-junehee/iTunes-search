@@ -24,14 +24,14 @@ final class SearchViewModel {
     }
     
     struct Output {
-        let recentList: BehaviorSubject<[String]>
+        let recentList: BehaviorRelay<[String]>
         // let searchList: Observable<[SearchResults]>
         let searchList: Driver<Search>
         let tableSelected: ControlEvent<SearchResults>
     }
     
     func transform(input: Input) -> Output {
-        let recentList = BehaviorSubject(value: UserDefaultsManager.recentSearch)
+        let recentList = BehaviorRelay(value: UserDefaultsManager.recentSearch)
         // let searchList = PublishSubject<[SearchResults]>()
         
         // input.searchText
@@ -57,11 +57,12 @@ final class SearchViewModel {
             .withLatestFrom(input.searchText.orEmpty)
             .distinctUntilChanged()
             .map { searchText in
-                var recentList = UserDefaultsManager.recentSearch
+                var recentSearch = UserDefaultsManager.recentSearch
                 // 이전 검색 리스트에 없을 때만 저장
-                if !recentList.contains(searchText) && !searchText.isEmpty {
-                    recentList.insert(searchText, at: 0)
-                    UserDefaultsManager.recentSearch = recentList
+                if !recentSearch.contains(searchText) && !searchText.isEmpty {
+                    recentSearch.insert(searchText, at: 0)
+                    UserDefaultsManager.recentSearch = recentSearch
+                    recentList.accept(UserDefaultsManager.recentSearch)
                 }
                 return searchText
             }

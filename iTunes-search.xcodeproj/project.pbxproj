@@ -140,8 +140,8 @@
 		C48062042C651723003FF7EE /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				C480623C2C679388003FF7EE /* Storage */,
 				C48062052C651818003FF7EE /* Search */,
+				C480623C2C679388003FF7EE /* Storage */,
 				C480622A2C652CAA003FF7EE /* SearchDetail */,
 			);
 			path = Presentation;

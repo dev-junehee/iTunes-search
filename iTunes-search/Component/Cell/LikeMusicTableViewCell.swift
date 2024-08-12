@@ -42,7 +42,7 @@ final class LikeMusicTableViewCell: BaseTableViewCell {
         return label
     }()
     
-    let downloadButton = {
+    let cancelButton = {
         var config = UIButton.Configuration.filled()
         config.baseBackgroundColor = Color.lightGray
         config.baseForegroundColor = Color.blue
@@ -59,7 +59,7 @@ final class LikeMusicTableViewCell: BaseTableViewCell {
     let disposeBag = DisposeBag()
     
     override func configureHierarchy() {
-        [albumImage, albumLabelStack, downloadButton].forEach { contentView.addSubview($0) }
+        [albumImage, albumLabelStack, cancelButton].forEach { contentView.addSubview($0) }
     }
     
     override func configureLayout() {
@@ -72,7 +72,7 @@ final class LikeMusicTableViewCell: BaseTableViewCell {
         albumLabelStack.snp.makeConstraints {
             $0.centerY.equalTo(albumImage)
             $0.leading.equalTo(albumImage.snp.trailing).offset(8)
-            $0.trailing.equalTo(downloadButton.snp.leading).offset(-8)
+            $0.trailing.equalTo(cancelButton.snp.leading).offset(-8)
         }
         
         albumNameLabel.snp.makeConstraints {
@@ -85,7 +85,7 @@ final class LikeMusicTableViewCell: BaseTableViewCell {
             $0.horizontalEdges.bottom.equalTo(albumLabelStack)
         }
         
-        downloadButton.snp.makeConstraints {
+        cancelButton.snp.makeConstraints {
             $0.centerY.equalTo(albumImage)
             $0.trailing.equalToSuperview().inset(20)
             $0.height.equalTo(32)

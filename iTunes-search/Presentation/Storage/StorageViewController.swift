@@ -45,7 +45,9 @@ final class StorageViewController: BaseViewController {
     }
     
     private func bind() {
-        let input = StorageViewModel.Input()
+        let cancelButtonTap = PublishSubject<LikeMusic>()
+        
+        let input = StorageViewModel.Input(cancelButtonTap: cancelButtonTap)
         let output = viewModel.transform(input: input)
         
         output.likeMusicList
@@ -53,8 +55,16 @@ final class StorageViewController: BaseViewController {
                 cell.albumNameLabel.text = element.trackName
                 cell.artistNameLabel.text = element.artistName
                 cell.albumImage.kf.setImage(with: URL(string: element.artworkUrl100))
+                
+                cell.cancelButton.rx.tap
+                    .subscribe { _ in
+                        cancelButtonTap.onNext(element)
+                    }
+                    .disposed(by: cell.disposeBag)
         }
         .disposed(by: disposeBag)
+        
+        
         
         
         
